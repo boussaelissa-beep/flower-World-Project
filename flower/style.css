@@ -1,0 +1,159 @@
+/* المتغيرات الأساسية للألوان - لسهولة التعديل */
+:root {
+    --soft-pink: #fff0f3;
+    --medium-pink: #ffc1cc;
+    --vibrant-pink: #ff758c;
+    --dark-pink: #c9184a;
+    --text-brown: #5e4146;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* إضافة تنعيم للتنقل */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(45deg, #fff0f3, #ffccd5, #fff0f3);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite; /* خلفية متحركة بنعومة */
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-brown);
+    line-height: 1.6;
+}
+
+/* حركة الخلفية */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* تنسيق العنوان الرئيسي مع حركة ظهور */
+.intro {
+    text-align: center;
+    padding: 80px 20px;
+    animation: fadeInDown 1.2s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.intro h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    color: var(--dark-pink);
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+/* تنسيق البطاقات - احترافي جداً */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+}
+
+.flower-card {
+    background: var(--glass-bg);
+    display: flex;
+    align-items: center;
+    border-radius: 40px; /* زوايا دائرية أكثر "كيوت" */
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* تأثير الزجاج الضبابي */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* حركة عند تمرير الماوس */
+.flower-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 105, 180, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* تنسيق الصور مع زوايا منحنية بالداخل */
+.img-container {
+    flex: 1;
+    min-width: 350px;
+    height: 350px;
+    padding: 15px; /* مساحة حول الصورة */
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.flower-card:hover img {
+    transform: rotate(2deg) scale(1.1);
+}
+
+/* تنسيق النصوص داخل البطاقة */
+.flower-info {
+    flex: 2;
+    padding: 50px;
+}
+
+.flower-info h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: var(--dark-pink);
+    margin-bottom: 8px;
+}
+
+.meaning {
+    display: inline-block;
+    background: var(--vibrant-pink);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(255, 117, 140, 0.3);
+}
+
+.flower-info p {
+    font-size: 1.1rem;
+    color: #7a5a60;
+}
+
+/* تصميم متجاوب للموبايل */
+@media (max-width: 850px) {
+    .flower-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .img-container {
+        width: 100%;
+        min-width: auto;
+    }
+    .flower-info {
+        padding: 30px;
+    }
+    .intro h1 { font-size: 3rem; }
+}
+
+/* تذييل الصفحة */
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--vibrant-pink);
+    font-weight: 500;
+}
